@@ -14,7 +14,7 @@ void add_head(lvl_list* lst, int level, int val){
         perror("Cannot add head on unexisting level"); //mets un message d'erreur dans la console
         exit(1); //quitte le programme
     }
-    cell *newhead = create_cell(val, lst->max_level);
+    cell *newhead = create_cell(val, level);
     newhead->next[level] = lst->head[level];
     lst->head[level] = newhead;
 }
