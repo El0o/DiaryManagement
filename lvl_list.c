@@ -20,11 +20,10 @@ void add_head(lvl_list* lst, int level, int val){
 }
 
 
-void insert_cell(lvl_list* lst, int level, int val){
+/*void insert_cell(lvl_list* lst, int level, int val){
     cell *here;
     cell *newcell = create_cell(val, lst->max_level);
     while (level > -1){
-        here = lst->head[level];
         if (here == NULL) add_head(lst, level, val);
         else while (here != NULL) {
                 if (here->next[level]->value < val)
@@ -36,6 +35,31 @@ void insert_cell(lvl_list* lst, int level, int val){
                 here->next[level] = newcell;
             }
         level--;
+    }
+}*/
+
+void insert_cell(lvl_list *lst, int lvl, int val){
+    cell *newcell= create_cell(val,lvl);
+    cell *position;
+    int stop;
+    for(int i=lvl-1;i>-1;i--){
+        stop=0;
+        if (lst->head[i]==NULL)
+            add_head(lst, i, val);
+        else{
+            if (lst->head[i]->value>val)
+                add_head(lst, i, val);
+            else{
+                position = lst->head[i];
+                while (position->next[i] != NULL && !stop) {
+                    if (position->next[i]->value > val)
+                        stop=1;
+                    else position = position->next[i];
+                }
+                newcell->next[i] = position->next[i];
+                position->next[i] = newcell;
+            }
+        }
     }
 }
 
