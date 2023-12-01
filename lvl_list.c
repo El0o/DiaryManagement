@@ -19,25 +19,6 @@ void add_head(lvl_list* lst, int level, int val){
     lst->head[level] = newhead;
 }
 
-
-/*void insert_cell(lvl_list* lst, int level, int val){
-    cell *here;
-    cell *newcell = create_cell(val, lst->max_level);
-    while (level > -1){
-        if (here == NULL) add_head(lst, level, val);
-        else while (here != NULL) {
-                if (here->next[level]->value < val)
-                here = here->next[level];
-            }
-            if (here == lst->head[level]) add_head(lst, level, val);
-            else {
-                newcell->next[level] = here->next[level];
-                here->next[level] = newcell;
-            }
-        level--;
-    }
-}*/
-
 void insert_cell(lvl_list *lst, int lvl, int val){
     cell *newcell= create_cell(val,lvl);
     cell *position;
