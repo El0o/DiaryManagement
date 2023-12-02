@@ -109,11 +109,11 @@ int powint(int x, int n) {
 lvl_list* build_test_list(int n) {
     lvl_list *test_lst = create_empty_list(n);
     int nb_cell = powint(2, n)-1, *lvl = (int*) malloc(nb_cell*sizeof(int)), i, j;
-    for (i=0; i<nb_cell; i++) lvl[i] = 0; // set all elt to 0
+    for (i=0; i<nb_cell; i++) lvl[i] = 1; // set all elt to 1
     for(j=1; j<n; j++)
         for (i=powint(2,j); i<nb_cell;i += powint(2, j))
             lvl[i-1]++; //list of "on what level do I put this number ?"
 
-    for(i=1; i<=nb_cell; i++) insert_cell(test_lst, lvl[i-1]+1, i);
+    for(i=1; i<=nb_cell; i++) insert_cell(test_lst, lvl[i-1], i);
     return test_lst;
 }
