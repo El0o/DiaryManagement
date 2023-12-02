@@ -13,7 +13,8 @@ void add_head(lvl_list*, int, int);
 void display_lvl(lvl_list, int);
 void display_list(lvl_list);
 void insert_cell(lvl_list*, int, int);
-
 int search_zero(lvl_list, int);
+int search_lvls(lvl_list*, int);
+
 
 #endif

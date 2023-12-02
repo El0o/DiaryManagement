@@ -64,6 +64,32 @@ void display_list(lvl_list list){
     }
 }
 
+int search_lvls(lvl_list* list, int val){
+    int i=list->max_level-1, found=0;
+    cell *position=list->head[i];
+    while(position==NULL && i>-1){
+        i--;
+        position=list->head[i];
+    }
+    while(position->value>val){
+        i--;
+        position=list->head[i];
+    }
+    while(i>-1 && !found){
+        if (position->value==val)
+            found=1;
+        else{
+            if (position->next[i]!=NULL) {
+                if (position->next[i]->value <= val)
+                    position = position->next[i];
+                else i--;
+            }
+            else i--;
+            }
+    }
+    return found;
+}
+
 int search_zero(lvl_list lst, int val) {
     cell* here = lst.head[0];
     while (here != NULL) {
