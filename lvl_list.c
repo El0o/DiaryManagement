@@ -23,6 +23,10 @@ void insert_cell(lvl_list *lst, int lvl, int val){
     cell *newcell= create_cell(val,lvl);
     cell *position;
     int stop;
+    if (lvl > lst->max_level || lvl < 0) {
+        perror("Cannot insert cell on unexisting level"); //mets un message d'erreur dans la console
+        exit(1); //quitte le programme
+    }
     for(int i=lvl-1;i>-1;i--){
         stop=0;
         if (lst->head[i]==NULL)
