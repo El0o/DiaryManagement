@@ -16,5 +16,6 @@ int main() {
     insert_cell(list,3,12);
 
     display_list(*list);
+
     return 0;
 }

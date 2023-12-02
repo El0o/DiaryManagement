@@ -63,3 +63,12 @@ void display_list(lvl_list list){
         display_lvl(list, i);
     }
 }
+
+int search_zero(lvl_list lst, int val) {
+    cell* here = lst.head[0];
+    while (here != NULL) {
+        if (here->value == val) return 1;
+        here = here->next[0];
+    }
+    return 0;
+}
