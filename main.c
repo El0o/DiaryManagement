@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "lvl_list.h"
-#include "Part2_analysis/timer.h"
+#include "Part_1-2/lvl_list.h"
+#include "Part_1-2/timer.h"
 
 int main() {
 
