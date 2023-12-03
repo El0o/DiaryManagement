@@ -17,7 +17,7 @@ void insert_cell(lvl_list*, int, int);
 int powint(int, int);
 lvl_list * build_test_list(int);
 int search_zero(lvl_list, int);
-int search_lvls(lvl_list*, int);
+int search_lvls(lvl_list, int);
 
 
 #endif

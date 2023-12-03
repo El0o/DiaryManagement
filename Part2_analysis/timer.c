@@ -21,7 +21,6 @@ void displayTime()
 {
     // display the time using getTimeAsString()
     printf("%s\n", getTimeAsString());
-    return;
 }
 
 // return a string with the time in seconds and milliseconds

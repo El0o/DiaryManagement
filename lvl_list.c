@@ -64,16 +64,16 @@ void display_list(lvl_list list){
     }
 }
 
-int search_lvls(lvl_list* list, int val){
-    int i=list->max_level-1, found=0;
-    cell *position=list->head[i];
+int search_lvls(lvl_list list, int val){
+    int i=list.max_level-1, found=0;
+    cell *position=list.head[i];
     while(position==NULL && i>-1){
         i--;
-        position=list->head[i];
+        position=list.head[i];
     }
     while(position->value>val){
         i--;
-        position=list->head[i];
+        position=list.head[i];
     }
     while(i>-1 && !found){
         if (position->value==val)
