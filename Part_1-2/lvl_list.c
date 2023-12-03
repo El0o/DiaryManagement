@@ -99,11 +99,7 @@ int search_zero(lvl_list lst, int val) {
     return 0;
 }
 
-int powint(int x, int n) {
-    int i, ans=1;
-    for(i=1; i<=n; i++) ans = ans*x;
-    return ans;
-}
+
 
 
 lvl_list* build_test_list(int n) {
