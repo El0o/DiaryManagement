@@ -1,6 +1,6 @@
 #include "cell.h"
 
-cell* create_cell(int val, int nbLevels){
+cell* create_cell(int val, int nbLevels) {
     cell* newcell = (cell*) malloc(sizeof(cell));
     int i;
     newcell->value = val;

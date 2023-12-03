@@ -1,10 +1,6 @@
 /*
- * Copy this code in the main to get the log.txt file(s)
+ * Copy this code in the main to get the log.txt file(s)  (THEY ALREADY EXISTS)
  * Then exploit the data on Matlab (.mlx file included in the the directory)
-
-#include <stdio.h>
-#include "lvl_list.h"
-#include "Part2_analysis/timer.h"
 
 int main() {
 
