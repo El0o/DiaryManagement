@@ -6,7 +6,8 @@ contact *create_contact(char* firstn_surn){
     newcontact->name=(char*) malloc(len*sizeof(char));
     newcontact->name=firstn_surn;
     newcontact->head_rdv=NULL;
-    newcontact->next = NULL;
+    for(int i=0; i<4;i++)
+        newcontact->next[i]=NULL;;
     newcontact->nbAppointments=0;
     return newcontact;
 }

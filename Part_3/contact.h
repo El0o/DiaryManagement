@@ -6,7 +6,7 @@
 typedef struct s_contact{
     char* name;
     rdv* head_rdv;
-    struct s_contact* next;
+    struct s_contact* next[4];
     int nbAppointments;
 } contact;
 
