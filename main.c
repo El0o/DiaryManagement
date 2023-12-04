@@ -8,6 +8,6 @@ int main() {
      * Instructions of how to run each part is provided both on the files and the associated "READMEs.md".
      */
 
-    printf("Name : %s", get_name("itadori_yuji"));
+
     return 0;
 }

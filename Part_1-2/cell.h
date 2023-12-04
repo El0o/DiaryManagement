@@ -9,5 +9,5 @@ typedef struct s_cell {
     struct s_cell** next;
 } cell;
 
-cell* create_cell(int, int);
+cell* create_cell(int val, int nbLevels);
 #endif

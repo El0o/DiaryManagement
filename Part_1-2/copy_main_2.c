@@ -1,4 +1,16 @@
 /*
+ * Copy this to test build_test_list()
+ *
+
+    lvl_list *test = build_test_list(4);
+    display_list(*test);
+
+ */
+
+
+
+
+/*
  * Copy this code in the main to get the log.txt file(s)  (THEY ALREADY EXISTS)
  * Then exploit the data on Matlab (.mlx file included in the the directory)
 

@@ -1,6 +1,6 @@
 #include "lvl_list.h"
 
-lvl_list* create_empty_list(int nbLvl){
+lvl_list* create_empty_list(int nbLvl) {
     lvl_list* newlist = malloc(sizeof(lvl_list));
     int i;
     newlist->max_level = nbLvl;
