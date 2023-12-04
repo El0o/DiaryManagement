@@ -12,7 +12,7 @@
 
 /*
  * Copy this code in the main to get the log.txt file(s)  (THEY ALREADY EXISTS)
- * Then exploit the data on Matlab (.mlx file included in the the directory)
+ * Then exploit the data on Matlab (.mlx file included in the directory)
 
 int main() {
 
