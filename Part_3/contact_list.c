@@ -7,6 +7,18 @@ c_lst* create_list(void){
     return newlist;
 }
 
+void display_contact_list(c_lst list) {
+    for(int i=0; i<4; i++) {
+        printf("[list head_%d @-]", i);
+        contact *curr= list.head[i];
+        while(curr != NULL) {
+            printf("-->[ %s |@-]",curr->name);
+            curr = curr->next[i];
+        }
+        printf("-->NULL\n");
+    }
+}
+/*void new_head(c_lst* lst, int level, contact* contact){
 void new_head(c_lst* lst, int level, contact* contact){
     if (level >= 4) {
         perror("Cannot add head on unexisting level"); //mets un message d'erreur dans la console
@@ -44,4 +56,4 @@ void insert_0(c_lst * list, contact* ctc){
         else
             position->next[0]=ctc;
     }
-}
+}*/

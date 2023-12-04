@@ -1,10 +1,11 @@
+
 #include "contact.h"
 
-contact *create_contact(char* firstn_surn){
+contact *create_contact(char* lastn_firstn){
     contact *newcontact = (contact*) malloc(sizeof(contact));
-    int len= char_length(firstn_surn);
+    int len= char_length(lastn_firstn);
     newcontact->name=(char*) malloc(len*sizeof(char));
-    newcontact->name=firstn_surn;
+    newcontact->name=lastn_firstn;
     newcontact->head_rdv=NULL;
     for(int i=0; i<4;i++)
         newcontact->next[i]=NULL;;
@@ -21,4 +22,9 @@ void add_rdv(contact* ctc, rdv* appoint){
             position=position->next;
         position->next=appoint;
     }
+}
+
+void diplay_contact(contact ctc){
+    printf("Name : %s\n", ctc.name);
+    printf("You have %d appointments with them.\n", ctc.nbAppointments);
 }

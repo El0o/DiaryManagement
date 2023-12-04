@@ -2,10 +2,13 @@
 #ifndef DIARYMANAGEMENT_TOOLS_H
 #define DIARYMANAGEMENT_TOOLS_H
 
+#include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 int powint(int x, int n);
-int char_length(char*);
+int char_length(char* str);
+char* get_name(char* lastn_firstn);
 
 #endif //DIARYMANAGEMENT_TOOLS_H

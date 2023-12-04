@@ -1,10 +1,11 @@
 #ifndef DIARYMANAGEMENT_APPOINTMENT_H
 #define DIARYMANAGEMENT_APPOINTMENT_H
 
-#include <stdlib.h>
+
+
 #include "../tools.h"
 
-#include "stdlib.h"
+
 
 typedef struct s_appointment {
     char date[6];
