@@ -4,11 +4,14 @@
 #include <stdlib.h>
 #include "../tools.h"
 
+#include "stdlib.h"
+
 typedef struct s_appointment {
-    int date[3];
-    int time[2];
-    int length[2];
+    char date[6];
+    char time[4];
+    char length[4];
     char* purpose;
+    struct s_appointment* next;
 } rdv;
 
 rdv *create_appointment(char* DDMMYYYY, char* HHMM, char* hhmm, char* content);

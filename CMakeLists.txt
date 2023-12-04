@@ -12,4 +12,7 @@ add_executable(DiaryManagement main.c Part_1-2/cell.h Part_1-2/cell.c Part_1-2/l
         Part_3/contact.h
         Part_1-2/copy_main_1.c
         Part_3/copy_main_3.c
-        tools.c tools.h)
+        tools.c tools.h
+        Part_3/copy_main_3.c
+        Part_3/contact_list.c
+        Part_3/contact_list.h)
