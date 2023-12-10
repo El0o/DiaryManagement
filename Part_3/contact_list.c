@@ -1,6 +1,5 @@
 #include "contact_list.h"
-#include <string.h>
-#include <stdio.h>
+
 
 c_lst* create_list(void){
     c_lst* newlist = malloc(sizeof(c_lst));
@@ -223,4 +222,42 @@ void insert_lvls(c_lst* list, contact* ctc){
             printf("Error : level does not exist");
             break;
     }
+}
+
+
+int search_zero_p3(c_lst list, char *name) {
+    contact * position = list.head[0];
+    while (position != NULL) {
+        if (strcmp(position->name, name) == 0)
+            return 1;
+        position = position->next[0];
+    }
+    return 0;
+}
+
+
+int search_lvls_p3(c_lst list, char *name){
+    int i=3, found=0;
+    contact *position=list.head[i];
+    while(position==NULL && i>-1){
+        i--;
+        position=list.head[i];
+    }
+    while(strcmp(position->name, name)>0){
+        i--;
+        position=list.head[i];
+    }
+    while(i>-1 && !found){
+        if (strcmp(position->name,name)==0)
+            found=1;
+        else{
+            if (position->next[i]!=NULL) {
+                if (strcmp(position->next[i]->name,name)<=0)
+                    position = position->next[i];
+                else i--;
+            }
+            else i--;
+        }
+    }
+    return found;
 }

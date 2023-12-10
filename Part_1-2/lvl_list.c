@@ -100,8 +100,6 @@ int search_zero(lvl_list lst, int val) {
 }
 
 
-
-
 lvl_list* build_test_list(int n) {
     lvl_list *test_lst = create_empty_list(n);
     int nb_cell = powint(2, n)-1, *lvl = (int*) malloc(nb_cell*sizeof(int)), i, j;
