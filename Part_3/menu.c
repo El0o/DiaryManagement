@@ -67,11 +67,11 @@ void choice_2(c_lst* list){
 void choice_3(c_lst* list){
     char yn[10];
     char* name= (char*) malloc(sizeof(char)*50);
-    char date[8]="12345678", time[4]="1234", length[4]="4321";
+    char date[6], time[4], length[4];
     char* purpose= (char*) malloc(sizeof(char));
 
     printf("\nTo create an appointment for a contact you have to enter a few informations."
-           "\nFirst, the date in format 'DDMMYYYY' :");
+           "\nFirst, the date in format 'DDMMYY' :");
     scanf("%s",date);
     printf("Then the time/hours in format 'HHMM' :");
     scanf("%s",time);
