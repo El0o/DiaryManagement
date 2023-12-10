@@ -47,7 +47,7 @@ void menu(){
 
 
 void choice_1(c_lst* list){
-    char* name= (char*) malloc(sizeof(char));
+    char* name= (char*) malloc(sizeof(char)*50);
     printf("\n\nPlease enter your contact's name as following 'surname_firstname' :");
     scanf(" %s", name);
     insert_lvls(list, create_contact(name));
@@ -56,10 +56,9 @@ void choice_1(c_lst* list){
 
 
 void choice_2(c_lst* list){
-    char* name= (char*) malloc(sizeof(char));
+    char* name= (char*) malloc(sizeof(char)*50);
     printf("\nPlease enter the contact's name you're looking for as following 'surname_firstname' :");
-    scanf(" %s\n", name);
-
+    scanf(" %s", name);
     if (search_lvls_p3(*list,name)==NULL)
         printf("\n%s was NOT found in the list of contacts ! Now choose your next action :\n\n",name);
     else
@@ -69,16 +68,16 @@ void choice_2(c_lst* list){
 
 void choice_3(c_lst* list){
     char yn[10];
-    char* name= (char*) malloc(sizeof(char));
-    char date[6], time[4], length[4];
+    char* name= (char*) malloc(sizeof(char)*50);
+    char date[8]="12345678", time[4]="1234", length[4]="4321";
     char* purpose= (char*) malloc(sizeof(char));
 
-    printf("\n To create an appointment for a contact you have to enter a few informations."
+    printf("\nTo create an appointment for a contact you have to enter a few informations."
            "\nFirst, the date in format 'DDMMYYYY' :");
     scanf("%s",date);
-    printf("\nThen the time/hours in format 'HHMM' :");
+    printf("Then the time/hours in format 'HHMM' :");
     scanf("%s",time);
-    printf("\nNext its length still in the format 'HHMM' :");
+    printf("Next its length still in the format 'HHMM' :");
     scanf("%s",length);
     printf("And finally, you can write a small paragraph to describe its purpose :");
     scanf("%s", purpose);
@@ -86,7 +85,7 @@ void choice_3(c_lst* list){
     char stop='y';
     while(stop=='y'){
         printf("\n\nEnter the name of the contact you want to assign this appointment to in format 'surname_firstname' :");
-        scanf("%s", name);
+        scanf("%s",name);
 
         if(search_lvls_p3(*list,name)==NULL){
             printf("This name was not found in the list, do you want to create it ? Please enter 'yes' or 'no'");
