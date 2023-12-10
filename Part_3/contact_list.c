@@ -225,18 +225,18 @@ void insert_lvls(c_lst* list, contact* ctc){
 }
 
 
-int search_zero_p3(c_lst list, char *name) {
+contact* search_zero_p3(c_lst list, char *name) {
     contact * position = list.head[0];
     while (position != NULL) {
         if (strcmp(position->name, name) == 0)
-            return 1;
+            return position;
         position = position->next[0];
     }
-    return 0;
+    return NULL;
 }
 
 
-int search_lvls_p3(c_lst list, char *name){
+contact* search_lvls_p3(c_lst list, char *name){
     int i=3, found=0;
     contact *position=list.head[i];
     while(position==NULL && i>-1){
@@ -259,5 +259,6 @@ int search_lvls_p3(c_lst list, char *name){
             else i--;
         }
     }
-    return found;
+    if (found) return position;
+    else return NULL;
 }
