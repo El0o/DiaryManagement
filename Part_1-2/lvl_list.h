@@ -2,7 +2,6 @@
 #define LVL_LIST_H
 
 #include "cell.h"
-#include "../tools.h"
 
 
 typedef struct s_lvl_list {
