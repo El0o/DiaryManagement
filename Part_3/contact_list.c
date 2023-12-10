@@ -10,7 +10,7 @@ c_lst* create_list(void){
 void display_contact_list(c_lst list) {
     for(int i=0; i<4; i++) {
         printf("[list head_%d @-]", i);
-        contact *curr= list.head[i];
+        contact *curr = list.head[i];
         while(curr != NULL) {
             printf("-->[ %s |@-]",curr->name);
             curr = curr->next[i];

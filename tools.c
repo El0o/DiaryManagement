@@ -7,14 +7,34 @@ int powint(int x, int n) {
     return ans;
 }
 
-int char_length(char* str){
+int char_length(char* str){ //  strlen() existe déjà
     int len=0;
     for(int i=0; str[i]!='\0';i++)
         len++;
     return len;
 }
 
+int id_underscore(char* lastn_firstn){
+    int id=0;
+    while (lastn_firstn[id] != '_' && lastn_firstn[id] != '\0') id++;
+    if (lastn_firstn[id] == '\0') {
+        perror("No underscore in the string");
+        id = -999;
+    }
+    return id;
+}
 
+char* name_to_dis(char* lastn_firstn) { // ne marche pas
+    char *fullname=  malloc(strlen(lastn_firstn)+1);
+    strncpy(fullname, lastn_firstn + id_underscore(lastn_firstn)+1, strlen(lastn_firstn) - id_underscore(lastn_firstn)-1);
+    strcat(fullname, " ");
+    strncat(fullname, lastn_firstn, id_underscore(lastn_firstn));
+    return fullname;
+}
+
+
+
+/*
 char* get_name(char* lastn_firstn){ // Does not work !!!
     char* nameToDisplay = (char*) malloc(char_length(lastn_firstn));
     int i=1;
@@ -33,10 +53,11 @@ char* get_name(char* lastn_firstn){ // Does not work !!!
     return nameToDisplay;
 }
 
-/* getname()'s first prototype. Doesn't work properly.
+ getname()'s first prototype. Doesn't work properly.
 
 
-char* get_name(char* lastn_firstn, char mode){  *namepart = (char*) malloc(char_length(lastn_firstn)*sizeof(char));
+char* get_name(char* lastn_firstn, char mode){
+    *namepart = (char*) malloc(char_length(lastn_firstn)*sizeof(char));
     int i=0, j=0;
     switch (mode) {
         case 'l' :

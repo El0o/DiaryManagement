@@ -28,3 +28,5 @@ void diplay_contact(contact ctc){
     printf("Name : %s\n", ctc.name);
     printf("You have %d appointments with them.\n", ctc.nbAppointments);
 }
+
+

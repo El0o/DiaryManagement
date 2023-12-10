@@ -9,6 +9,9 @@
 
 int powint(int x, int n);
 int char_length(char* str);
-char* get_name(char* lastn_firstn);
+char* name_to_dis(char* lastn_firstn);
+int id_underscore(char* lastn_firstn);
+
+
 
 #endif //DIARYMANAGEMENT_TOOLS_H
