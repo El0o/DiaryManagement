@@ -1,4 +1,6 @@
 #include "contact_list.h"
+#include <string.h>
+#include <stdio.h>
 
 c_lst* create_list(void){
     c_lst* newlist = malloc(sizeof(c_lst));
@@ -37,13 +39,12 @@ int which_level(c_lst* list, contact* ctc){
     for(int i=3;i>0;i--){
         position=list->head[i];
         while(position!=NULL && !stop && ctc->name[letter]!='_' && position->name[letter]!='_') {
-            if (position->name[letter] == ctc->name[letter])
-                for(int j=letter+1; ctc->name[j]!='_' && position->name[j]!='_' && !stop; j++){
-                    if (position->name[j] > ctc->name[j])
+            if (position->name[letter] == ctc->name[letter]){
+                    if (strcmp(position->name, ctc->name)>0)
                         return i;
-                    else if (position->name[j] < ctc->name[j])
+                    else
                         stop=1;
-                }
+            }
             else if (position->name[letter] > ctc->name[letter])
                 return i;
             else {
@@ -64,20 +65,14 @@ void insert_0(c_lst * list, contact* ctc){
     if (list->head[0]==NULL)
         new_head(list,0,ctc);
     else{
-        int stop=0, i;
+        int stop=0;
         contact* position=list->head[0],*previous;
         while(position!=NULL && !stop){
-            i=0;
-            while(ctc->name[i]!='_' && position->name[i]!='_'){
-                if (position->name[i] > ctc->name[i])
-                    stop=1;
-                else if (position->name[i]==ctc->name[i])
-                    i++;
-                else {
-                    previous=position;
-                    position=position->next[0];
-                }
+            if (strcmp(position->name,ctc->name)<0) {
+                previous = position;
+                position = position->next[0];
             }
+            else stop=1;
         }
         if(stop){
             if (position==list->head[0]) {
@@ -90,41 +85,142 @@ void insert_0(c_lst * list, contact* ctc){
             }
         }
         else
-            position->next[0]=ctc;
+            previous->next[0]=ctc;
     }
 }
+
 
 void insert_1(c_lst* list, contact* ctc){
     if (list->head[1]==NULL)
         new_head(list,1,ctc);
     else{
-        int stop=0, i;
-        contact* position=list->head[1], *previous;
+        int stop=0;
+        contact* position=list->head[1],*previous;
+
         while(position!=NULL && !stop){
-            i=0;
-            while(ctc->name[i]!='_' && position->name[i]!='_'){
-                if (position->name[i] > ctc->name[i])
-                    stop=1;
-                else if (position->name[i]==ctc->name[i])
-                    i++;
-                else {
-                    previous=position;
-                    position=position->next[0];
-                }
+            if (strcmp(position->name,ctc->name)<0) {
+                previous = position;
+                position = position->next[1];
             }
+            else stop=1;
         }
-        if(stop){
-            if (position==list->head[0]) {
-                new_head(list, 0, ctc);
-                list->head[0]->next[0]=position;
+
+        if (stop) {
+            if (position == list->head[1]) {
+                new_head(list, 1, ctc);
+                if(position->name[2]!=ctc->name[2])
+                    list->head[1]->next[1] = position;
+                else
+                    list->head[1]->next[1] = position->next[1];
             }
             else {
-                previous->next[0] = ctc;
-                ctc->next[0] = position;
+                previous->next[1] = ctc;
+                if(position->name[2]!=ctc->name[2])
+                    ctc->next[1] = position;
+                else
+                    ctc->next[1] = position->next[1];
             }
         }
         else
-            position->next[0]=ctc;
+            previous->next[1] = ctc;
     }
     insert_0(list,ctc);
+}
+
+
+void insert_2(c_lst* list, contact* ctc) {
+    if (list->head[2] == NULL)
+        new_head(list, 2, ctc);
+    else {
+        int stop = 0;
+        contact *position = list->head[2], *previous;
+
+        while (position != NULL && !stop) {
+            if (strcmp(position->name, ctc->name) < 0) {
+                previous = position;
+                position = position->next[2];
+            }
+            else stop = 1;
+        }
+
+        if (stop) {
+            if (position == list->head[2]) {
+                new_head(list, 2, ctc);
+                if(position->name[1]!=ctc->name[1])
+                    list->head[2]->next[2] = position;
+                else
+                    list->head[2]->next[2] = position->next[2];
+            }
+            else {
+                previous->next[2] = ctc;
+                if(position->name[1]!=ctc->name[1])
+                    ctc->next[2] = position;
+                else
+                    ctc->next[2] = position->next[2];
+            }
+        }
+        else
+            previous->next[2] = ctc;
+    }
+    insert_1(list,ctc);
+}
+
+
+void insert_3(c_lst* list, contact* ctc) {
+    if (list->head[3] == NULL)
+        new_head(list, 3, ctc);
+    else {
+        int stop = 0;
+        contact *position = list->head[3], *previous;
+
+        while (position != NULL &&!stop) {
+            if (strcmp(position->name, ctc->name) < 0) {
+                previous = position;
+                position = position->next[3];
+            }
+            else stop=1;
+        }
+
+        if (stop) {
+            if (position == list->head[3]) {
+                new_head(list, 3, ctc);
+                if(position->name[0]!=ctc->name[0])
+                    list->head[3]->next[3] = position;
+                else
+                    list->head[3]->next[3] = position->next[3];
+            }
+            else {
+                previous->next[3] = ctc;
+                if(position->name[0]!=ctc->name[0])
+                    ctc->next[3] = position;
+                else
+                    ctc->next[3] = position->next[3];
+            }
+        }
+        else
+            previous->next[3] = ctc;
+    }
+    insert_2(list, ctc);
+}
+
+
+void insert_lvls(c_lst* list, contact* ctc){
+    int lvl= which_level(list, ctc);
+    switch (lvl){
+        case (0):
+            insert_0(list,ctc);
+            break;
+        case (1):
+            insert_1(list, ctc);
+            break;
+        case (2):
+            insert_2(list, ctc);
+            break;
+        case (3):
+            insert_3(list, ctc);
+            break;
+        default:
+            printf("Error : level does not exist");
+            break;
+    }
 }

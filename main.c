@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Part_1-2/lvl_list.h"
 #include "Part_1-2/timer.h"
+#include "Part_3/contact_list.h"
 
 int main() {
     /*
@@ -8,7 +9,5 @@ int main() {
      * Instructions of how to run each part is provided both on the files and the associated "READMEs.md".
      */
 
-    char* name="itatori_yuji";
-    printf("%s", name_to_dis(name));
     return 0;
 }

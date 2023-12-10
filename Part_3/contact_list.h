@@ -10,12 +10,11 @@ typedef struct s_contact_list {
 c_lst* create_list(void);
 void new_head(c_lst *, int, contact*);
 void display_contact_list(c_lst);
-//void display_lvl(lvl_list, int);
-//void display_list(lvl_list);
-//void insert_cell(lvl_list*, int, int);
 int which_level(c_lst*, contact*);
 void insert_0(c_lst *, contact*);
 void insert_1(c_lst*, contact*);
-
+void insert_2(c_lst*, contact*);
+void insert_3(c_lst*, contact*);
+void insert_lvls(c_lst*, contact*);
 
 #endif //DIARYMANAGEMENT_CONTACT_LIST_H
