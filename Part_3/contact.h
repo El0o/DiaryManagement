@@ -11,7 +11,8 @@ typedef struct s_contact{
 } contact;
 
 contact *create_contact(char* lastn_firstn);
-void add_rdv(contact* ctc, rdv* appoint);
+void add_rdv(contact*, rdv*);
+void display_rdvs(contact*);
 void display_contact(contact);
 
 

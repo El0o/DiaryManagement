@@ -24,7 +24,17 @@ void add_rdv(contact* ctc, rdv* appoint){
     }
 }
 
-void diplay_contact(contact ctc){
+void display_rdvs(contact* ctc){
+    display_contact(*ctc);
+    rdv* appoint=ctc->head_rdv;
+    while(appoint!=NULL){
+        printf("\nDate : %s - At : %s - For : %s - Description : %s",
+               appoint->date,appoint->time, appoint->length,appoint->purpose);
+        appoint=appoint->next;
+    }
+}
+
+void display_contact(contact ctc){
     printf("Name : %s\n", ctc.name);
     printf("You have %d appointments with them.\n", ctc.nbAppointments);
 }

@@ -6,13 +6,13 @@ void menu(){
 
     printf("\nDIARY MANAGEMENT APPLICATION\n\n");
 
-    while(choice!='6') {
+    while(choice!='5') {
+        choice='0';
         printf("[ 1 ] - Create a contact\n"
                "[ 2 ] - Search for a contact\n"
                "[ 3 ] - Create an appointment for a contact\n"
                "[ 4 ] - View a contact's appointments\n"
-               "[ 5 ] - Delete an appointment\n"
-               "[ 6 ] - Quit\n\n"
+               "[ 5 ] - Quit\n\n"
                "Enter your choice of option :");
 
         scanf(" %c", &choice);
@@ -31,16 +31,14 @@ void menu(){
                 break;
 
             case ('4'):
+                choice_4(list);
                 break;
 
             case ('5'):
                 break;
 
-            case('6'):
-                break;
-
             default:
-                printf("hehe");
+                printf("\nPlease choose a number between these 5 options.\n\n");
         }
     }
 }
@@ -107,4 +105,15 @@ void choice_3(c_lst* list){
         printf("\nDo you want to assign this appointment to another contact ? If so enter y, else enter any other character:");
         scanf("%c", &stop);
     }
+}
+
+
+void choice_4(c_lst* list){
+    char* name= (char*) malloc(sizeof(char)*50);
+    printf("\n\nPlease enter the contact's name you want to check your appointments with in the format 'surname_firstname' :");
+    scanf(" %s", name);
+    if(search_lvls_p3(*list,name)==NULL)
+        printf("\nThis name does not figure in your contacts.");
+    else
+        display_rdvs(search_lvls_p3(*list, name));
 }
